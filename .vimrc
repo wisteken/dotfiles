@@ -1,96 +1,65 @@
-if $compatible
-  set nocompatible " Be iMproved
-endif
+" setting
+"文字コードをUFT-8に設定
+set fenc=utf-8
+" バックアップファイルを作らない
+set nobackup
+" スワップファイルを作らない
+set noswapfile
+" 編集中のファイルが変更されたら自動で読み直す
+set autoread
+" バッファが編集中でもその他のファイルを開けるように
+set hidden
+" 入力中のコマンドをステータスに表示する
+set showcmd
 
-set rtp+=~/.vim/
-runtime! userautoload/init/*.vim
-runtime! userautoload/dein/*.vim
 
-let s:dein_dir = expand('~/.vim/dein')
+" 見た目系
+" 行番号を表示
+set number
+" 現在の行を強調表示
+set cursorline
+" 現在の行を強調表示（縦）
+set cursorcolumn
+" 行末の1文字先までカーソルを移動できるように
+set virtualedit=onemore
+" インデントはスマートインデント
+set smartindent
+" ビープ音を可視化
+set visualbell
+" 括弧入力時の対応する括弧を表示
+set showmatch
+" ステータスラインを常に表示
+set laststatus=2
+" コマンドラインの補完
+set wildmode=list:longest
+" 折り返し時に表示行単位での移動できるようにする
+nnoremap j gj
+nnoremap k gk
+" シンタックスハイライトの有効化
+syntax enable
 
-"コマンド実行する $ git clone https://github.com/Shougo/dein.vim.git ~/.vim/dein/repos/github.com/Shougo/dein.vim
-set rtp+=~/.vim/dein/repos/github.com/Shougo/dein.vim
 
-" dein.vim がなければ github から落としてくる
-if &runtimepath !~# '/dein.vim'
-  if !isdirectory(s:dein_repo_dir)
-    execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
-  endif
-  execute 'set runtimepath^=' . fnamemodify(s:dein_repo_dir, ':p')
-endif
+" Tab系
+" 不可視文字を可視化(タブが「▸-」と表示される)
+set list listchars=tab:\▸\-
+" Tab文字を半角スペースにする
+set expandtab
+" 行頭以外のTab文字の表示幅（スペースいくつ分）
+set tabstop=2
+" 行頭でのTab文字の表示幅
+set shiftwidth=2
 
-if dein#load_state(s:dein_dir)
-  call dein#begin(s:dein_dir)
 
-  call dein#load_toml('~/.vim/userautoload/dein/plugins.toml', {'lazy': 0})
-  call dein#load_toml('~/.vim/userautoload/dein/lazy.toml', {'lazy': 1})
-
-  call dein#end()
-  call dein#save_state()
-endif
-
-if dein#check_install()
-  call dein#install()
-endif
-
-"シンタックスハイライト
-syntax on
-
-"配色設定
-set t_Co=256
-autocmd ColorScheme * highlight Normal ctermbg=none
-autocmd ColorScheme * highlight LineNr ctermbg=none
-
-"カラースキーマ
-"http://pyoonn.hatenablog.com/entry/2014/10/04/225321
-"https://github.com/benjaminwhite/Benokai
-colorscheme Benokai
-
-"配色・ハイライト設定
-highlight Comment ctermfg=239
-highlight Number ctermfg=09
-highlight LineNr ctermfg=07
-highlight Directory ctermfg=118
-highlight RubyInstanceVariable ctermfg=208
-highlight htmlTag ctermfg=15
-highlight htmlEndTag ctermfg=15
-highlight Search term=reverse ctermfg=black ctermbg=248
-"補完の配色
-highlight Pmenu ctermbg=239
-highlight PmenuSel ctermbg=6
-highlight PMenuSbar ctermbg=239
-
-" gitgutterの色
-set updatetime=250
-let g:gitgutter_max_signs = 500
-let g:gitgutter_map_keys = 0
-let g:gitgutter_override_sign_column_highlight = 0
-highlight clear SignColumn
-highlight GitGutterAdd ctermfg=2
-highlight GitGutterChange ctermfg=3
-highlight GitGutterDelete ctermfg=1
-highlight GitGutterChangeDelete ctermfg=4
-
-"シンタックスハイライト(syntax onより前に書かない)
-autocmd User Rails.view*                 NeoSnippetSource ~/.vim/snippet/ruby.rails.view.snip
-autocmd User Rails.controller*           NeoSnippetSource ~/.vim/snippet/ruby.rails.controller.snip
-autocmd User Rails/db/migrate/*          NeoSnippetSource ~/.vim/snippet/ruby.rails.migrate.snip
-autocmd User Rails/config/routes.rb      NeoSnippetSource ~/.vim/snippet/ruby.rails.route.snip
-
-" 奇数インデントのカラー
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#333333 ctermbg=235
-" 偶数インデントのカラー
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#2c2c2c ctermbg=240
-
-"全角スペースをハイライト表示
-function! ZenkakuSpace()
-  highlight ZenkakuSpace cterm=reverse ctermfg=DarkMagenta gui=reverse guifg=DarkMagenta
-endfunction
-if has('syntax')
-  augroup ZenkakuSpace
-  autocmd!
-  autocmd ColorScheme       * call ZenkakuSpace()
-  autocmd VimEnter,WinEnter * match ZenkakuSpace /　/
-  augroup END
-  call ZenkakuSpace()
-endif
+" 検索系
+" 検索文字列が小文字の場合は大文字小文字を区別なく検索する
+set ignorecase
+" 検索文字列に大文字が含まれている場合は区別して検索する
+set smartcase
+" 検索文字列入力時に順次対象文字列にヒットさせる
+set incsearch
+" 検索時に最後まで行ったら最初に戻る
+set wrapscan
+" 検索語をハイライト表示
+set hlsearch
+" ESC連打でハイライト解除
+nmap <Esc><Esc> :nohlsearch<CR><Esc>
