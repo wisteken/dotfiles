@@ -4,10 +4,10 @@
 git submodule update --init --recursive
 
 # prezto
-setopt EXTENDED_GLOB
-for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
- ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
-done
+ln -sf ~/dotfiles/.zprezto/runcoms/zlogin ~/.zlogin
+ln -sf ~/dotfiles/.zprezto/runcoms/zlogout ~/.zlogout
+ln -sf ~/dotfiles/.zprezto/runcoms/zshenv ~/.zshenv
+ln -sf ~/dotfiles/.zprezto/runcoms/zprofile ~/.zprofile
 
 # symlink dotfiles
 ln -sf ~/dotfiles/.zprezto ~/.zprezto
