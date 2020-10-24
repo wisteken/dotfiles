@@ -15,6 +15,7 @@ ln -sf ~/dotfiles/.vimrc ~/.vimrc
 ln -sf ~/dotfiles/.zshrc ~/.zshrc
 ln -sf ~/dotfiles/.zpreztorc ~/.zpreztorc
 ln -sf ~/dotfiles/.vim ~/.vim
+ln -sf ~/dotfiles/.tmux.conf ~/.tmux.conf
 
 # change shell
 chsh -s $(which zsh)
