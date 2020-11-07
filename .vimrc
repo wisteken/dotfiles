@@ -39,6 +39,7 @@ nmap <C-n> <Plug>AirlineSelectNextTab
 " nerdtree
 syntax on
 filetype plugin indent on
+map <C-t> :NERDTreeToggle<CR>
 
 " colortheme
 set background=dark
