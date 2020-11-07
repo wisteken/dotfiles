@@ -26,6 +26,10 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 Plugin 'preservim/nerdtree'
 Plugin 'dracula/vim'
+Plugin 'junegunn/fzf.vim'
+Plugin 'junegunn/fzf'
+Plugin 'tpope/vim-commentary'
+
 
 call vundle#end()
 filetype plugin indent on
