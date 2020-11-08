@@ -8,12 +8,12 @@ fi
 alias gcd='ghq look `ghq list |fzf --preview "bat --color=always --style=header,grid --line-range :80 $(ghq root)/{}/README.*"`'
 
 source ~/.zplug/init.zsh
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 
 zplug "zsh-users/zsh-history-substring-search"
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "zsh-users/zsh-completions"
 zplug "b4b4r07/enhancd", use:enhancd.sh
-plug "modules/prompt", from:prezto
 zplug "b4b4r07/zsh-gomi", as:command, use:bin, rename-to:rm
 
 # fzf
