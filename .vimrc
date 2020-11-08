@@ -49,3 +49,8 @@ map <C-t> :NERDTreeToggle<CR>
 " colortheme
 set background=dark
 colorscheme dracula
+
+" fzf
+let g:fzf_preview_window = ['right:50%', 'ctrl-/']
+let g:fzf_preview_windiw = ['up:40%:hidden', 'ctrl-/']
+let g:fzf_preview_window = []
