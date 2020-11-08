@@ -1,3 +1,4 @@
+set shell=/bin/bash
 set encoding=UTF-8
 
 " 行番号を表示
