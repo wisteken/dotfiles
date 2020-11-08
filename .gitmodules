@@ -7,3 +7,6 @@
 [submodule ".zplug"]
 	path = .zplug
 	url = https://github.com/zplug/zplug.git
+[submodule "/Users/kentaro-f/dotfiles/.zplug"]
+	path = /Users/kentaro-f/dotfiles/.zplug
+	url = https://github.com/zplug/zplug.git
