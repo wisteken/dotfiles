@@ -29,9 +29,21 @@ Plugin 'tpope/vim-surround'
 Plugin 'preservim/nerdtree'
 Plugin 'tpope/vim-commentary'
 
+if has('nvim')
+  Plugin 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plugin 'Shougo/deoplete.nvim'
+  Plugin 'roxma/nvim-yarp'
+  Plugin 'roxma/vim-hug-neovim-rpc'
+endif
+
+"let g:python3_host_prog  = '/usr/local/Cellar/python3/3.5.1/bin'
+set runtimepath+=~/.vim/bundle/deoplete.nvim/
+let g:deoplete#enable_at_startup = 1
+
 if isdirectory('~/.fzf')
     Plugin '~/.fzf' | Plugin 'junegunn/fzf.vim'
- else
+else
     Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
     Plugin 'junegunn/fzf.vim'
 endif
@@ -47,7 +59,6 @@ nmap <C-p> <Plug>AirlineSelectPrevTab
 nmap <C-n> <Plug>AirlineSelectNextTab
 
 " nerdtree
-syntax on
 filetype plugin indent on
 map <C-t> :NERDTreeToggle<CR>
 
@@ -66,3 +77,18 @@ command! -bang -nargs=* Rg
 " Filesコマンドにもプレビューを出す
 command! -bang -nargs=? -complete=dir Files
   \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
+
+" deoplete
+inoremap <expr><tab> pumvisible() ? "\<C-n>" :
+  \ neosnippet#expandable_or_jumpable() ?
+  \    "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
+
+" neosnippet
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+smap <C-k> <Plug>(neosnippet_expand_or_jump)
+xmap <C-k> <Plug>(neosnippet_expand_target)
+if has('conceal')
+  set conceallevel=2 concealcursor=niv
+endif
+
+

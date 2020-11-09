@@ -28,26 +28,27 @@ alias gc="git commit"
 
 zplug "zsh-users/zsh-history-substring-search"
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
+zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-completions"
 zplug "plugins/git",   from:oh-my-zsh
 zplug "modules/prompt", from:prezto
 zplug "b4b4r07/enhancd", use:enhancd.sh
-zplug "b4b4r07/zsh-gomi", as:command, use:bin, rename-to:rm
+zplug "b4b4r07/zsh-gomi", as:command, use:bin
 
-# fzf
-#zplug "junegunn/fzf-bin", as:command, from:gh-r, rename-to:fzf
-#zplug "junegunn/fzf", as:command, use:bin/fzf-tmux
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#ff00ff,bg=cyan,bold,underline"
+export FZF_CTRL_T_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
+export FZF_CTRL_T_OPTS='--preview "bat  --color=always --style=header,grid --line-range :100 {}"'
 
 # theme
 zplug "romkatv/powerlevel10k", as:theme, depth:1
 
+# zplug
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "
     if read -q; then
         echo; zplug install
     fi
 fi
-
 zplug load
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
