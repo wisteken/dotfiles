@@ -14,7 +14,7 @@ ln -sf ~/dotfiles/.tmux.conf ~/.tmux.conf
 
 # install
 vi +PluginInstall +qall
-.fzf/install
+~/.fzf/install
 
 # change shell
 chsh -s $(which zsh)

@@ -16,6 +16,7 @@ set shiftwidth=4
 set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=~/.fzf
 
 call vundle#begin()
 
@@ -26,10 +27,14 @@ Plugin 'ryanoasis/vim-devicons'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 Plugin 'preservim/nerdtree'
-Plugin 'dracula/vim'
-Plugin 'junegunn/fzf.vim'
 Plugin 'tpope/vim-commentary'
 
+if isdirectory('~/.fzf')
+    Plugin '~/.fzf' | Plugin 'junegunn/fzf.vim'
+ else
+    Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
+    Plugin 'junegunn/fzf.vim'
+endif
 
 call vundle#end()
 filetype plugin indent on
