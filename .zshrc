@@ -10,19 +10,33 @@ alias gcd='ghq look `ghq list |fzf --preview "bat --color=always --style=header,
 source ~/.zplug/init.zsh
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 
+# ls
 alias ls='ls -G'
 alias ll='ls -alF'
 alias la='ls -A'
 
+# git
+alias g="git"
+alias ga="git add"
+alias gd="git diff"
+alias gst="git status"
+alias gp="git push"
+alias gb="git bransh"
+alias gco="git checkout"
+alias gf="git fetch"
+alias gc="git commit"
+
 zplug "zsh-users/zsh-history-substring-search"
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "zsh-users/zsh-completions"
+zplug "plugins/git",   from:oh-my-zsh
+zplug "modules/prompt", from:prezto
 zplug "b4b4r07/enhancd", use:enhancd.sh
 zplug "b4b4r07/zsh-gomi", as:command, use:bin, rename-to:rm
 
 # fzf
-zplug "junegunn/fzf-bin", as:command, from:gh-r, rename-to:fzf
-zplug "junegunn/fzf", as:command, use:bin/fzf-tmux
+#zplug "junegunn/fzf-bin", as:command, from:gh-r, rename-to:fzf
+#zplug "junegunn/fzf", as:command, use:bin/fzf-tmux
 
 # theme
 zplug "romkatv/powerlevel10k", as:theme, depth:1
@@ -39,3 +53,5 @@ zplug load
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 (( ! ${+functions[p10k]} )) || p10k finalize
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

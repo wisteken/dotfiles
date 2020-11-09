@@ -1,12 +1,10 @@
-[submodule ".zprezto"]
-	path = .zprezto
-	url = https://github.com/sorin-ionescu/prezto.git
 [submodule ".vim/bundle/Vundle.vim"]
 	path = .vim/bundle/Vundle.vim
-	url = http://github.com/gmarik/vundle.git
+	url = https://github.com/VundleVim/Vundle.vim.git
 [submodule ".zplug"]
 	path = .zplug
 	url = https://github.com/zplug/zplug.git
-[submodule "/Users/kentaro-f/dotfiles/.zplug"]
-	path = /Users/kentaro-f/dotfiles/.zplug
-	url = https://github.com/zplug/zplug.git
+[submodule ".fzf"]
+	path = .fzf
+	url = https://github.com/junegunn/fzf.git
+

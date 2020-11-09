@@ -12,7 +12,7 @@ set expandtab
 set tabstop=4
 set shiftwidth=4
 
-" config for Vundle.vim
+" Vundle.vim
 set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -28,12 +28,12 @@ Plugin 'tpope/vim-surround'
 Plugin 'preservim/nerdtree'
 Plugin 'dracula/vim'
 Plugin 'junegunn/fzf.vim'
-Plugin 'junegunn/fzf'
 Plugin 'tpope/vim-commentary'
 
 
 call vundle#end()
 filetype plugin indent on
+syntax enable
 
 " airline
 let g:airline_theme = 'wombat'
@@ -47,10 +47,17 @@ filetype plugin indent on
 map <C-t> :NERDTreeToggle<CR>
 
 " colortheme
-set background=dark
-colorscheme dracula
+"set background=dark
+"colorscheme dracula
 
 " fzf
-let g:fzf_preview_window = ['right:50%', 'ctrl-/']
-let g:fzf_preview_windiw = ['up:40%:hidden', 'ctrl-/']
-let g:fzf_preview_window = []
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
+  \   <bang>0 ? fzf#vim#with_preview('up:60%')
+  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \   <bang>0)
+
+" Filesコマンドにもプレビューを出す
+command! -bang -nargs=? -complete=dir Files
+  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
