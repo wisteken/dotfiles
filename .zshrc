@@ -10,6 +10,10 @@ alias gcd='ghq look `ghq list |fzf --preview "bat --color=always --style=header,
 source ~/.zplug/init.zsh
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 
+alias ls='ls -G'
+alias ll='ls -alF'
+alias la='ls -A'
+
 zplug "zsh-users/zsh-history-substring-search"
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "zsh-users/zsh-completions"
