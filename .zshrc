@@ -35,7 +35,8 @@ zplug "modules/prompt", from:prezto
 zplug "b4b4r07/enhancd", use:enhancd.sh
 zplug "b4b4r07/zsh-gomi", as:command, use:bin
 
-export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#ff00ff,bg=cyan,bold,underline"
+# export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#ff00ff,bg=cyan,bold,underline"
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=magenta"
 export FZF_CTRL_T_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
 export FZF_CTRL_T_OPTS='--preview "bat  --color=always --style=header,grid --line-range :100 {}"'
 
