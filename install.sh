@@ -24,7 +24,7 @@ if [ ! -d "$HOME/.config"]; then
     mkdir "$HOME/.config/nvim"
   fi
 fi
-ln -sf "$HOME/dotfiles/.vimrc"
+ln -sf "$HOME/dotfiles/.vimrc" "$HOME/.config/nvim/init.vim"
 
 # install
 vi +PluginInstall +qall
