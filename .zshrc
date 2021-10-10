@@ -1,6 +1,5 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
+#!/bin/zsh
+
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
@@ -11,7 +10,11 @@ source ~/.zplug/init.zsh
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 
 # ls
-alias ls='ls -G'
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  alias ls='ls --color=auto'
+else
+  alias ls='ls -G'
+fi
 alias ll='ls -alF'
 alias la='ls -A'
 
@@ -35,8 +38,13 @@ zplug "modules/prompt", from:prezto
 zplug "b4b4r07/enhancd", use:enhancd.sh
 zplug "b4b4r07/zsh-gomi", as:command, use:bin
 
-# export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#ff00ff,bg=cyan,bold,underline"
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#ff00ff,bg=cyan,bold,underline"
+else
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=magenta"
+fi
+
+# fzf
 export FZF_CTRL_T_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
 export FZF_CTRL_T_OPTS='--preview "bat  --color=always --style=header,grid --line-range :100 {}"'
 

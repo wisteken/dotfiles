@@ -4,19 +4,31 @@
 git submodule update --init --recursive
 
 # symlink dotfiles
-ln -sf ~/dotfiles/.zprezto ~/.zprezto
-ln -sf ~/dotfiles/.vimrc ~/.vimrc
-ln -sf ~/dotfiles/.zshrc ~/.zshrc
-ln -sf ~/dotfiles/.zplug ~/.zplug
-ln -sf ~/dotfiles/.fzf ~/.fzf
-ln -sf ~/dotfiles/.vim ~/.vim
-ln -sf ~/dotfiles/.tmux.conf ~/.tmux.conf
+ln -sf "$HOME/dotfiles/.vimrc" "$HOME/.vimrc"
+ln -sf "$HOME/dotfiles/.zplug" "$HOME/.zplug"
+ln -sf "$HOME/dotfiles/.fzf" "$HOME/.fzf"
+ln -sf "$HOME/dotfiles/.vim" "$HOME/.vim"
+
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  ln -sf "$HOME/dotfiles/.zshrc_mac" "$HOME/.zshrc"
+  ln -sf "$HOME/dotfiles/.tmux.conf_mac" "$HOME/.tmux.conf"
+else
+  ln -sf "$HOME/dotfiles/.zshrc" "$HOME/.zshrc"
+  ln -sf "$HOME/dotfiles/.tmux.conf" "$HOME/.tmux.conf"
+fi
+
+if [ ! -d "$HOME/.config"]; then
+  mkdir "$HOME/.config"
+  if [ ! -d "$HOME/.confg/nvim"]; then
+    mkdir "$HOME/.config/nvim"
+fi
+ln -sf "$HOME/dotfiles/.vimrc"
 
 # install
 vi +PluginInstall +qall
-~/.fzf/install
+$HOME/.fzf/install
 
 # change shell
 chsh -s $(which zsh)
 
-source ~/dotfiles/.zshrc
+source $HOME/dotfiles/.zshrc

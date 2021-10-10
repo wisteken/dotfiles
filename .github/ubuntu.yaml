@@ -1,0 +1,16 @@
+name: Ubuntu
+
+on:
+  push: [master]
+
+jobs:
+  ubuntu:
+    runs-on: ubuntu-latest
+
+  steps:
+  - use: actions/checkout@v2
+
+  - name: run
+    run: |
+      chmod +x ./install.sh
+      ./install.sh

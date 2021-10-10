@@ -1,4 +1,4 @@
-set shell=/bin/bash
+set shell=/bin/zsh
 set encoding=UTF-8
 
 " 行番号を表示
@@ -7,10 +7,10 @@ set number
 " 自動インデントを有効
 set autoindent
 
-" tabを半角スペース4個分に変換
+" tabを半角スペース2個分に変換
 set expandtab
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 
 " Vundle.vim
 set nocompatible
@@ -37,7 +37,6 @@ else
   Plugin 'roxma/vim-hug-neovim-rpc'
 endif
 
-"let g:python3_host_prog  = '/usr/local/Cellar/python3/3.5.1/bin'
 set runtimepath+=~/.vim/bundle/deoplete.nvim/
 let g:deoplete#enable_at_startup = 1
 
@@ -61,10 +60,6 @@ nmap <C-n> <Plug>AirlineSelectNextTab
 " nerdtree
 filetype plugin indent on
 map <C-t> :NERDTreeToggle<CR>
-
-" colortheme
-"set background=dark
-"colorscheme dracula
 
 " fzf
 command! -bang -nargs=* Rg

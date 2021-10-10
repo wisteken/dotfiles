@@ -1,0 +1,16 @@
+name: MacOS
+
+on:
+  push: [master]
+
+jobs:
+  macos:
+    runs-on: macos-latest
+
+  steps:
+  - use: actions/checkout@v2
+
+  - name: run
+    run: |
+      chmod +x ./install.sh
+      ./install.sh
