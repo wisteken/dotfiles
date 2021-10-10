@@ -1,1 +1,0 @@
-/home/fuchi/dotfiles/.vim
