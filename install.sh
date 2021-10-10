@@ -14,6 +14,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   ln -sf "$HOME/dotfiles/.tmux.conf_mac" "$HOME/.tmux.conf"
 else
   ln -sf "$HOME/dotfiles/.zshrc" "$HOME/.zshrc"
+  ln -sf "$HOME/dotfiles/.tmux" "$HOME/.tmux"
   ln -sf "$HOME/dotfiles/.tmux.conf" "$HOME/.tmux.conf"
 fi
 
