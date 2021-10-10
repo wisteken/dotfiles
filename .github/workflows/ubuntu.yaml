@@ -13,6 +13,6 @@ jobs:
 
     - name: Install
       run: |
-        apt install zsh
+        apt-get install zsh
         chmod +x ./install.sh
         ./install.sh
