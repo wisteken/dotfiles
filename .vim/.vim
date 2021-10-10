@@ -1,1 +1,1 @@
-/Users/kentaro-f/dotfiles/.vim
+/home/fuchi/dotfiles/.vim
