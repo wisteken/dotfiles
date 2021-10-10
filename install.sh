@@ -26,9 +26,9 @@ ln -sf "$HOME/dotfiles/.vimrc"
 
 # install
 vi +PluginInstall +qall
-$HOME/.fzf/install
+~/.fzf/install
 
 # change shell
 chsh -s $(which zsh)
 
-source $HOME/dotfiles/.zshrc
+source ~/dotfiles/.zshrc
