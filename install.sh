@@ -22,6 +22,7 @@ if [ ! -d "$HOME/.config"]; then
   mkdir "$HOME/.config"
   if [ ! -d "$HOME/.confg/nvim"]; then
     mkdir "$HOME/.config/nvim"
+  fi
 fi
 ln -sf "$HOME/dotfiles/.vimrc"
 

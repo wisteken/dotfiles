@@ -1,0 +1,1 @@
+/Users/kentaro-f/dotfiles/.vim
