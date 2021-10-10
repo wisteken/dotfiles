@@ -8,12 +8,11 @@ ln -sf "$HOME/dotfiles/.vimrc" "$HOME/.vimrc"
 ln -sf "$HOME/dotfiles/.zplug" "$HOME/.zplug"
 ln -sf "$HOME/dotfiles/.fzf" "$HOME/.fzf"
 ln -sf "$HOME/dotfiles/.vim" "$HOME/.vim"
+ln -sf "$HOME/dotfiles/.zshrc" "$HOME/.zshrc"
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
-  ln -sf "$HOME/dotfiles/.zshrc_mac" "$HOME/.zshrc"
   ln -sf "$HOME/dotfiles/.tmux.conf_mac" "$HOME/.tmux.conf"
 else
-  ln -sf "$HOME/dotfiles/.zshrc" "$HOME/.zshrc"
   ln -sf "$HOME/dotfiles/.tmux" "$HOME/.tmux"
   ln -sf "$HOME/dotfiles/.tmux.conf" "$HOME/.tmux.conf"
 fi
