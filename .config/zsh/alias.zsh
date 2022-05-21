@@ -19,6 +19,7 @@ alias gps="g ps"
 alias gpl="g pl"
 alias gco="g co"
 alias gf="g f"
+alias gl="g l"
 
 alias tree='tree -N'
 alias vi=nvim
