@@ -3,7 +3,7 @@
 ## 1. clone
 
 ```shell
-git clone --recursive git@github.com:wisteken/dotfiles.git
+git clone git@github.com:wisteken/dotfiles.git
 ```
 
 ## 2. install
