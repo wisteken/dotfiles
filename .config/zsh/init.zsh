@@ -15,6 +15,7 @@ ZSH_CONFIGS=(
   history
   anyenv
   tmux
+  fzf
 )
 
 for CONFIG in $ZSH_CONFIGS; do

@@ -29,3 +29,5 @@
 	f = fetch
 	b = branch
 	alias = "!git config --list | grep -e '^alias' | sed -e 's/alias\\.//' -e 's/=/\\t\\t/'"
+[ghq]
+	root = ~/src
