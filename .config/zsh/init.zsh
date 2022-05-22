@@ -16,6 +16,7 @@ ZSH_CONFIGS=(
   anyenv
   tmux
   fzf
+  phpenv
 )
 
 for CONFIG in $ZSH_CONFIGS; do

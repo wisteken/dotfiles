@@ -160,6 +160,7 @@ colorscheme dracula
 " nerdtree
 filetype plugin indent on
 map <C-t> :NERDTreeToggle<CR>
+autocmd BufWritePost * NERDTreeFocus | execute 'normal R' | wincmd p
 
 " fzf
 command! -bang -nargs=* Rg
