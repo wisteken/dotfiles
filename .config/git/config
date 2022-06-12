@@ -1,33 +1,33 @@
 [user]
-	name = Kentaro Fujita
-	email = 50708397+kentaro-fujita@users.noreply.github.com
+  name = Kentaro Fujita
+  email = 50708397+kentaro-fujita@users.noreply.github.com
 [filter "lfs"]
-	process = git-lfs filter-process
-	required = true
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
 [push]
-	default = current
+  default = current
 [core]
-	editor = vim
-	# excludesfile = /Users/kentaro-f/.gitignore_global
+  editor = vim
+  excludesfile = ~/.gitignore_global
 [init]
-	defaultBranch = main
+  defaultBranch = main
 [url "git@github.com:"]
   insteadOf = https://github.com/
 [alias]
-	a = add
-	c = "commit -v"
-	d = "diff"
-	ds = "diff --staged"
-	ps = push
-	pl = pull
-	l = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-	st = status
-	stu = "status -uno"
-	co = checkout
-	f = fetch
-	b = branch
-	alias = "!git config --list | grep -e '^alias' | sed -e 's/alias\\.//' -e 's/=/\\t\\t/'"
+  a = add
+  c = "commit -v"
+  d = "diff"
+  ds = "diff --staged"
+  ps = push
+  pl = pull
+  l = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+  st = status
+  stu = "status -uno"
+  co = checkout
+  f = fetch
+  b = branch
+  alias = "!git config --list | grep -e '^alias' | sed -e 's/alias\\.//' -e 's/=/\\t\\t/'"
 [ghq]
-	root = ~/src
+  root = ~/src
