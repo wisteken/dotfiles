@@ -6,7 +6,7 @@ if [[ "$OSTYPE" == "Darwin" ]]; then
 else
   alias ls="ls --color=auto"
 fi
-alias ll="ls -alF"
+alias ll="ls -altrF"
 alias la="ls -A"
 
 # git

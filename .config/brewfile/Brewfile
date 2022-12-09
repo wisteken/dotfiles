@@ -9,6 +9,7 @@ brew 'apr-util'
 brew 'argon2'
 brew 'aspell'
 brew 'autoconf'
+brew 'bash'
 brew 'bat'
 brew 'bdw-gc'
 brew 'berkeley-db'
@@ -109,6 +110,7 @@ brew 'libyaml'
 brew 'libzip'
 brew 'little-cms2'
 brew 'lua'
+brew 'luajit'
 brew 'luajit-openresty'
 brew 'luv'
 brew 'lz4'
@@ -165,6 +167,8 @@ brew 'utf8proc'
 brew 'vim'
 brew 'webp'
 brew 'wget'
+brew 'wireguard-go'
+brew 'wireguard-tools'
 brew 'wireshark'
 brew 'x264'
 brew 'x265'
@@ -213,12 +217,13 @@ brew 'brew-file'
 # App Store applications
 mas 'BetterSnapTool (1.9.7)', id: 417375580
 mas 'GarageBand (10.4.6)', id: 682658836
-mas 'GoodNotes (5.9.12)', id: 1444383602
+mas 'GoodNotes (5.9.14)', id: 1444383602
 mas 'iMovie (10.3.3)', id: 408981434
 mas 'Keynote (12.0)', id: 409183694
 mas 'LINE (7.8.1)', id: 539883307
 mas 'Magnet (2.8.0)', id: 441258766
 mas 'Numbers (12.0)', id: 409203825
 mas 'Pages (12.0)', id: 409201541
-mas 'Spark (2.11.18)', id: 1176895641
+mas 'Spark (2.11.20)', id: 1176895641
+mas 'WireGuard (1.0.15)', id: 1451685025
 mas 'Xcode (13.4)', id: 497799835

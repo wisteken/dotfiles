@@ -1,0 +1,13 @@
+# MacOS
+.DS_Store
+
+# vscode
+.vscode/
+
+# anyenv
+.python_version
+.node_version
+
+# python
+__pycache__/
+

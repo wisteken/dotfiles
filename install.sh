@@ -11,8 +11,8 @@ if [ "$(uname -s)" = "Darwin" ]; then
 fi
 
 ln -sf "$HOME/dotfiles/.tmux.conf" "$HOME/.tmux.conf"
-ln -sf "$HOME/dotfiles/.zshrc" "$HOME/.zshrc"
-source "$HOME/.zshrc"
+ln -sf "$HOME/dotfiles/.zprofile" "$HOME/.zprofile"
+source "$HOME/.zproile"
 
 # vim
 vi +PlugInstall +qall
