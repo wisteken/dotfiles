@@ -10,7 +10,6 @@
   default = current
 [core]
   editor = vim
-  excludesfile = ~/.config/zsh/ignore
 [init]
   defaultBranch = main
 [url "git@github.com:"]
