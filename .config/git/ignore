@@ -5,14 +5,12 @@
 .vscode/
 
 # anyenv
-.python-version
-.node-version
-.go-version
-.ruby-version
+.*-version
 
 # python
 __pycache__/
 .ipynb_checkpoints/
+.venv/
 
 # node
 node_modules/
