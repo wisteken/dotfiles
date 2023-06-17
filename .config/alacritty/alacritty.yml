@@ -1,0 +1,39 @@
+window:
+  opacity: 0.8
+  dimensions:
+    columns: 220
+    lines: 72
+
+font:
+  size: 16
+  normal:
+    family: "HackGen35 Console NF"
+    style: Regular
+  bold:
+    family: "HackGen35 Console NF"
+    style: Bold
+
+colors:
+  primary:
+    background: "#333333"
+    foreground: "#eaeaea"
+  normal:
+    black: "#000000"
+    red: "#ff6d67"
+    green: "#59f68d"
+    yellow: "#f3f89d"
+    blue: "#c9a8fa"
+    magenta: "#ff92d0"
+    cyan: "#99ecfd"
+    white: "#c7c7c7"
+
+  bright:
+    black: "#676767"
+    red: "#ff6d67"
+    green: "#59f68d"
+    yellow: "#f3f89d"
+    blue: "#c9a8fa"
+    magenta: "#ff92d0"
+    cyan: "#99ecfd"
+    white: "#fffeff"
+

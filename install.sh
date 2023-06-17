@@ -4,6 +4,7 @@
 ln -sf "$HOME/dotfiles/.config/zsh" "$HOME/.config"
 ln -sf "$HOME/dotfiles/.config/nvim" "$HOME/.config"
 ln -sf "$HOME/dotfiles/.config/git" "$HOME/.config"
+ln -sf "$HOME/dotfiles/.config/alacritty" "$HOME/.config"
 if [ "$(uname -s)" = "Darwin" ]; then
   ln -sf "$HOME/dotfiles/.config/brewfile" "$HOME/.config"
   brew file install

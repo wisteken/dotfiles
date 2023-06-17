@@ -14,7 +14,7 @@ set ruler
 set cursorline
 " カーソル位置の縦一桁の背景色を変える
 set cursorcolumn
-" 画面最下部のステータス業を
+" 画面最下部のステータス行を
 " 0: 全く表示しない
 " 1: ウィンドウが2つ以上あるときだけ表示
 " 2: 常に表示
@@ -120,16 +120,13 @@ endif
 " call plugin
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'airblade/vim-gitgutter'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'github/copilot.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ryanoasis/vim-devicons'
 Plug 'tpope/vim-fugitive'
 Plug 'dracula/vim', { 'as': 'dracula' }
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'prabirshrestha/vim-lsp'
-Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/asyncomplete-lsp.vim'
-Plug 'mattn/vim-lsp-settings'
 Plug 'tpope/vim-surround'
 Plug 'preservim/nerdtree'
 Plug 'tpope/vim-commentary'
@@ -151,15 +148,23 @@ highlight GitGutterAdd ctermfg=2 ctermbg=0
 highlight GitGutterChange ctermfg=3 ctermbg=0
 set updatetime=1000
 
+" coc
+let g:coc_global_extensions = ['coc-eslint', 'coc-explorer', 'coc-fzf-preview', 'coc-html', 'coc-json', 'coc-pyright', 'coc-sql', 'coc-tsserver', 'coc-vetur', 'coc-yaml', 'coc-solargraph']
+
 " vim-airline
 let g:airline_powerline_fonts = 1
 
 " theme
+highlight Normal guibg=NONE ctermbg=NONE
+let g:dracula_colorterm = 0
 colorscheme dracula
 
 " nerdtree
+let NERDTreeShowHidden=1
 filetype plugin indent on
-map <C-t> :NERDTreeToggle<CR>
+nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
 autocmd BufWritePost * NERDTreeFocus | execute 'normal R' | wincmd p
 
 " fzf
@@ -182,3 +187,21 @@ if has('conceal')
   set conceallevel=2 concealcursor=niv
 endif
 
+" coc
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
+inoremap <silent><expr> <C-j> coc#pum#visible() ? coc#pum#next(1) : "\<C-j>"
+inoremap <silent><expr> <C-k> coc#pum#visible() ? coc#pum#prev(1) : "\<C-k>"
+inoremap <silent><expr> <Enter> coc#pum#visible() ? coc#pum#confirm() : "\<Enter>"
+inoremap <silent><expr> <Esc> coc#pum#visible() ? coc#pum#cancel() : "\<Esc>"
+inoremap <silent><expr> <C-h> coc#pum#visible() ? coc#pum#cancel() : "\<C-h>"
+
+inoremap <silent><expr> <TAB>
+  \ coc#pum#visible() ? coc#pum#next(1):
+  \ <SID>check_back_space() ? "\<Tab>" :
+  \ coc#refresh()
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<S-TAB>" " "\<C-h>"
+inoremap <silent><expr> <c-space> coc#refresh()
