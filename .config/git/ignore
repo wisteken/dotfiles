@@ -4,6 +4,9 @@
 # vscode
 .vscode/
 
+# coc
+coc-settings.json
+
 # anyenv
 .*-version
 

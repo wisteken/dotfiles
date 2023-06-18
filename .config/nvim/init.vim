@@ -43,6 +43,11 @@ set sidescrolloff=16
 " 画面の左右の端でスクロールが発生した場合、
 " 何文字ずつスクロールするか
 set sidescroll=1
+" 選択範囲移動
+nnoremap <S-Up> :m-2<CR>
+nnoremap <S-Down> :m+<CR>
+inoremap <S-Up> <Esc>:m-2<CR>
+inoremap <S-Down> <Esc>:m+<CR>
 
 " === ファイル処理関連の設定 ===
 " 編集中で保存されていないファイルがある時に他のファイルを開けるか
@@ -91,7 +96,7 @@ set history=10000
 
 " === 動作環境と統合関連の設定 ===
 " OSのクリップボードをどのレジスタと関連付けるか
-set clipboard=unnamed,unnamedplus
+set clipboard=unnamed
 " マウスの入力を受け付ける
 set mouse=a
 " Windowsでもパスの区切り文字を/にする
@@ -149,7 +154,7 @@ highlight GitGutterChange ctermfg=3 ctermbg=0
 set updatetime=1000
 
 " coc
-let g:coc_global_extensions = ['coc-eslint', 'coc-explorer', 'coc-fzf-preview', 'coc-html', 'coc-json', 'coc-pyright', 'coc-sql', 'coc-tsserver', 'coc-vetur', 'coc-yaml', 'coc-solargraph']
+let g:coc_global_extensions = ['coc-eslint', 'coc-explorer', 'coc-fzf-preview', 'coc-html', 'coc-json', 'coc-jedi', 'coc-sql', 'coc-tsserver', 'coc-yaml', 'coc-solargraph', 'coc-copilot', 'coc-docker', 'coc-go', 'coc-prettier']
 
 " vim-airline
 let g:airline_powerline_fonts = 1
@@ -205,3 +210,14 @@ inoremap <silent><expr> <TAB>
   \ coc#refresh()
 inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<S-TAB>" " "\<C-h>"
 inoremap <silent><expr> <c-space> coc#refresh()
+
+" Use `[g` and `]g` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" GoTo code navigation
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
