@@ -64,5 +64,6 @@ if not vim.loop.fs_stat(lazypath) then
 end
 set.rtp:prepend(lazypath)
 
-require('lazy').setup('plugins')
+-- plugins
+require("lazy").setup("plugins")
 

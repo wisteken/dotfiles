@@ -1,9 +1,14 @@
 return {
   "nvim-tree/nvim-tree.lua",
+  version = "*",
+  lazy = false,
   dependencies = {
     "nvim-tree/nvim-web-devicons",
   },
   keys = {
-    "<C-n>", "<cmd>NvimTreeFindFileToggle<CR>", desc = "Toggle file explorer"
-  }
+    { '<leader>e', ':NvimTreeToggle<CR>', desc = "NvimTree" }
+  },
+  config = function()
+    require("nvim-tree").setup {}
+  end,
 }
