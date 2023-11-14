@@ -12,6 +12,7 @@ if [ "$(uname -s)" = "Darwin" ]; then
 fi
 
 ln -sf "$HOME/dotfiles/.config/hyper/.hyper.js" "$HOME/.hyper.js"
+ln -sf "$HOME/dotfiles/.config/latex/.latexmkrc" "$HOME/.latexmkrc"
 ln -sf "$HOME/dotfiles/.zprofile" "$HOME/.zprofile"
 source "$HOME/.zproile"
 

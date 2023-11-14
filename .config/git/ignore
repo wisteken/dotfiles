@@ -17,4 +17,7 @@ __pycache__/
 
 # node
 node_modules/
+dist/
 
+# vagrant
+*.box
