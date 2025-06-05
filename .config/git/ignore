@@ -22,4 +22,5 @@ dist/
 # vagrant
 *.box
 
+# claude
 **/.claude/settings.local.json
