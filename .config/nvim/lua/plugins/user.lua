@@ -6,18 +6,6 @@
 ---@type LazySpec
 return {
 
-  -- == Examples of Adding Plugins ==
-
-  "andweeb/presence.nvim",
-  {
-    "ray-x/lsp_signature.nvim",
-    event = "BufRead",
-    config = function() require("lsp_signature").setup() end,
-  },
-
-  -- == Examples of Overriding Plugins ==
-
-  -- customize alpha options
   {
     "goolord/alpha-nvim",
     opts = function(_, opts)
@@ -81,43 +69,6 @@ return {
         Rule("a", "a", "-vim")
       )
     end,
-  },
-
-  -- GitHub Copilot
-  {
-    "github/copilot.vim",
-    cmd = "Copilot",
-    event = "InsertEnter",
-    config = function() vim.g.copilot_no_tab_map = true end,
-    i = {
-      ["<C-a>"] = { "copilot#Accept(<Tab>)", silent = true, expr = true, script = true },
-    }
-  },
-
-  -- ChatGPT
-  {
-    "jackMort/ChatGPT.nvim",
-    enabled = true,
-    event = "VeryLazy",
-    config = function()
-        require("chatgpt").setup({
-            api_key_cmd = "bw get password 771784bd-223c-473f-9a0b-b14d00f19661",
-            openai_params = {
-                model = "gpt-4",
-            },
-            openai_edit_params = {
-                model = "gpt-4",
-            },
-            predefined_chat_gpt_prompts = "file:///" .. vim.loop.os_homedir() .. "/awesome-chatgpt-prompts/prompts.csv",
-        })
-    end,
-    dependencies = {
-        "MunifTanjim/nui.nvim",
-        "nvim-lua/plenary.nvim",
-        "folke/trouble.nvim",
-        "nvim-telescope/telescope.nvim",
-    },
-    lazy = false,
   },
 
 }

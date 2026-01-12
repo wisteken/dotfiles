@@ -1,0 +1,76 @@
+# Ghostty Configuration
+# Migrated from Hyper terminal configuration
+
+# Font Settings
+font-family = HackGen35 Console NF
+font-size = 15
+
+# Cursor Settings
+cursor-style = block
+cursor-style-blink = false
+cursor-invert-fg-bg = true
+cursor-opacity = 0.8
+# cursor-color = #f81ce5
+
+# Color Scheme
+foreground = #eaeaea
+background = #333333
+background-opacity = 0.9
+selection-background = #f81ce5
+
+# Window Settings
+window-padding-x = 4
+window-padding-y = 4
+
+# Behavior Settings
+copy-on-select = true
+macos-option-as-alt = true
+
+# ANSI Color Palette (16 colors)
+# Black
+palette = 0=#000000
+# Red
+palette = 1=#ff6d67
+# Green
+palette = 2=#59f68d
+# Yellow
+palette = 3=#f3f89d
+# Blue
+palette = 4=#c9a8fa
+# Magenta
+palette = 5=#ff92d0
+# Cyan
+palette = 6=#99ecfd
+# White
+palette = 7=#c7c7c7
+# Bright Black
+palette = 8=#676767
+# Bright Red
+palette = 9=#ff6d67
+# Bright Green
+palette = 10=#59f68d
+# Bright Yellow
+palette = 11=#f3f89d
+# Bright Blue
+palette = 12=#c9a8fa
+# Bright Magenta
+palette = 13=#ff92d0
+# Bright Cyan
+palette = 14=#99ecfd
+# Bright White
+palette = 15=#fffeff
+
+# Shell Settings
+shell-integration = detect
+shell-integration-features = cursor,sudo,title
+
+# macOS specific settings
+macos-titlebar-style = transparent
+
+# Additional settings for better compatibility
+confirm-close-surface = false
+mouse-hide-while-typing = true
+
+# Window appearance
+window-theme = auto
+window-decoration = true

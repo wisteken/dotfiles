@@ -1,19 +1,15 @@
 [user]
   name = Kentaro Fujita
   email = 50708397+kentaro-fujita@users.noreply.github.com
-[include]
-  path = ~/.config/git/config.private
-[core]
-  editor = vim
 [filter "lfs"]
   process = git-lfs filter-process
   required = true
   clean = git-lfs clean -- %f
   smudge = git-lfs smudge -- %f
-[commit]
-	verbose = true
 [push]
   default = current
+[core]
+  editor = vim
 [init]
   defaultBranch = main
 [url "git@github.com:"]
@@ -34,3 +30,6 @@
   alias = "!git config --list | grep -e '^alias' | sed -e 's/alias\\.//' -e 's/=/\\t\\t/'"
 [ghq]
   root = ~/src
+
+[includeIf "gitdir:~/src/"]
+  path = ~/.config/git/config.local
