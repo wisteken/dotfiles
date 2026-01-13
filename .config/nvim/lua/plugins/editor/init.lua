@@ -96,6 +96,29 @@ return {
       require("scrollbar.handlers.gitsigns").setup()
     end,
   },
+  -- mini.diff: インライン差分表示（gitsignsを補完）
+  {
+    "echasnovski/mini.diff",
+    event = "VeryLazy",
+    keys = {
+      { "<leader>gO", function() require("mini.diff").toggle_overlay() end, desc = "Git: Toggle diff overlay" },
+    },
+    opts = {
+      view = {
+        style = "sign",
+        signs = { add = "▎", change = "▎", delete = "" },
+      },
+      mappings = {
+        apply = "gh",
+        reset = "gH",
+        textobject = "gh",
+        goto_first = "[H",
+        goto_prev = "[h",
+        goto_next = "]h",
+        goto_last = "]H",
+      },
+    },
+  },
   {
     "zbirenbaum/neodim",
     event = "LspAttach",

@@ -14,10 +14,7 @@ fi
 ln -sf "$HOME/dotfiles/.config/hyper/.hyper.js" "$HOME/.hyper.js"
 ln -sf "$HOME/dotfiles/.config/latex/.latexmkrc" "$HOME/.latexmkrc"
 ln -sf "$HOME/dotfiles/.zprofile" "$HOME/.zprofile"
-source "$HOME/.zproile"
-
-# vim
-vi +PlugInstall +qall
+source "$HOME/.zprofile"
 
 # change shell
 chsh -s $(which zsh)

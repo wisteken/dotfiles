@@ -10,6 +10,7 @@ ZSH_CONFIGS=(
   zinit
   theme
   alias
+  editor
   brew
   plugin
   history
