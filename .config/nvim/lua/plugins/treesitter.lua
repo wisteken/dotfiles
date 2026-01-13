@@ -1,16 +1,121 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
-
--- Customize Treesitter
-
----@type LazySpec
 return {
-  "nvim-treesitter/nvim-treesitter",
-  opts = function(_, opts)
-    -- add more things to the ensure_installed table protecting against community packs modifying it
-    opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, {
-      "lua",
-      "vim",
-      -- add more arguments for adding more treesitter parsers
-    })
-  end,
+  {
+    "nvim-treesitter/nvim-treesitter",
+    version = "*",
+    event = { "BufReadPre" },
+    config = function()
+      require("nvim-treesitter.configs").setup({
+        ensure_installed = {
+          "bash",
+          "css",
+          "cue",
+          -- 'diff',
+          "dockerfile",
+          "git_config",
+          "git_rebase",
+          "gitattributes",
+          "gitcommit",
+          "gitignore",
+          "go",
+          "gomod",
+          "gosum",
+          "gowork",
+          "graphql",
+          "hcl",
+          "html",
+          "javascript",
+          "jq",
+          "jsdoc",
+          "json",
+          "json5",
+          "jsonnet",
+          "lua",
+          "make",
+          "markdown",
+          "markdown_inline", -- required by lspsaga.nvim
+          "prisma",
+          "proto",
+          "python",
+          "regex",
+          "ruby",
+          "rust",
+          "scss",
+          "sql",
+          "starlark",
+          "toml",
+          "tsx",
+          "typescript",
+          "vim",
+          "vue",
+          "yaml",
+        },
+        -- indent = {
+        --   enable = true,
+        -- },
+        highlight = {
+          enable = true,
+          additional_vim_regex_highlighting = false,
+        },
+      })
+    end,
+  },
+  {
+    "nvim-treesitter/nvim-treesitter-context",
+    event = { "BufReadPre" },
+    dependencies = { "nvim-treesitter" },
+    init = function()
+      local palette = require("utils.colors").palette
+
+      require("utils.highlight").force_set_highlights("treesitter-context_hl", {
+        TreesitterContext = { bg = palette.surface1, blend = 10 },
+      })
+    end,
+    opts = {
+      max_lines = 4,
+    },
+  },
+  {
+    "nvim-treesitter/nvim-treesitter-textobjects", -- required by nvim-surround
+    event = { "BufReadPre" },
+    dependencies = { "nvim-treesitter" },
+  },
+  {
+    "haringsrob/nvim_context_vt",
+    event = { "BufReadPre" },
+    dependencies = { "nvim-treesitter" },
+    init = function()
+      require("utils.highlight").force_set_highlights("context_vt_hl", {
+        ContextVt = { link = "DiagnosticHint" },
+      })
+    end,
+    opts = {
+      min_rows = 3,
+    },
+  },
+  {
+    "andymass/vim-matchup",
+    version = "*",
+    event = { "BufReadPre" },
+    dependencies = { "nvim-treesitter" },
+    config = function()
+      vim.g.matchup_matchparen_offscreen = {}
+    end,
+  },
+  {
+    "windwp/nvim-ts-autotag",
+    event = { "BufReadPre" },
+    dependencies = { "nvim-treesitter" },
+    opts = {
+      opts = {
+        enable_close = true,
+        enable_rename = true,
+        enable_close_on_slash = true,
+      },
+    },
+  },
+  {
+    "JoosepAlviste/nvim-ts-context-commentstring",
+    lazy = true,
+    opts = { enable_autocmd = false },
+  },
 }
