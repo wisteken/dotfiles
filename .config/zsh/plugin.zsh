@@ -4,13 +4,8 @@ zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-completions
 
 # oh-my-zsh plugins
-plugins=(
-  gitfast
-)
-
 zinit snippet OMZL::git.zsh
-zinit ice svn
-zinit snippet OMZP::gitfast
+zinit snippet OMZP::git
 
 # prezto plugins
 zinit snippet PZTM::helper
