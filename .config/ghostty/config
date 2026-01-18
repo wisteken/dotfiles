@@ -9,13 +9,13 @@ font-size = 15
 cursor-style = block
 cursor-style-blink = false
 cursor-invert-fg-bg = true
-cursor-opacity = 0.8
+cursor-opacity = 0.9
 # cursor-color = #f81ce5
 
 # Color Scheme
 foreground = #eaeaea
 background = #333333
-background-opacity = 0.9
+background-opacity = 0.95
 selection-background = #f81ce5
 
 # Window Settings
