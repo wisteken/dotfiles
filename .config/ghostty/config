@@ -21,6 +21,7 @@ selection-background = #f81ce5
 # Window Settings
 window-padding-x = 4
 window-padding-y = 4
+maximize = true
 
 # Behavior Settings
 copy-on-select = true
