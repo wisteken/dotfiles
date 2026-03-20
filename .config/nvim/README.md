@@ -50,6 +50,7 @@ Leader key: `<Space>`
 | `<leader>gs` | Git status |
 | `<leader>gd` | CodeDiff 開く (VSCodeライク) |
 | `<leader>gh` | CodeDiff コミット履歴 |
+| `<leader>gD` | CodeDiff 閉じる |
 | `<leader>gO` | インライン差分オーバーレイ (mini.diff) |
 | `<leader>gl` | Git permalink をコピー |
 | `<leader>gL` | Git permalink を開く |
