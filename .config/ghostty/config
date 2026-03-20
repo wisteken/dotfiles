@@ -1,6 +1,8 @@
 # Ghostty Configuration
 # Migrated from Hyper terminal configuration
 
+term = xterm-256-color
+
 # Font Settings
 font-family = HackGen35 Console NF
 font-size = 15
@@ -9,13 +11,12 @@ font-size = 15
 cursor-style = block
 cursor-style-blink = false
 cursor-invert-fg-bg = true
-cursor-opacity = 0.9
-# cursor-color = #f81ce5
+cursor-opacity = 0.85
 
 # Color Scheme
 foreground = #eaeaea
 background = #333333
-background-opacity = 0.95
+background-opacity = 0.9
 selection-background = #f81ce5
 
 # Window Settings
@@ -75,3 +76,14 @@ mouse-hide-while-typing = true
 # Window appearance
 window-theme = auto
 window-decoration = true
+
+# keybinds
+keybind = super+p=text:\x1b[112;9~
+keybind = super+shift+f=text:\x1b[70;10~
+keybind = super+shift+p=text:\x1b[80;10~
+keybind = super+b=text:\x1b[98;9~
+keybind = super+slash=text:\x1b[47;9~
+keybind = super+grave_accent=text:\x1b[96;9~
+keybind = super+j=text:\x1b[106;9~
+keybind = super+shift+j=text:\x1b[74;10~
+

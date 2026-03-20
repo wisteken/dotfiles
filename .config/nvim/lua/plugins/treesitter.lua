@@ -9,7 +9,6 @@ return {
           "bash",
           "css",
           "cue",
-          -- 'diff',
           "dockerfile",
           "git_config",
           "git_rebase",
@@ -49,9 +48,6 @@ return {
           "vue",
           "yaml",
         },
-        -- indent = {
-        --   enable = true,
-        -- },
         highlight = {
           enable = true,
           additional_vim_regex_highlighting = false,
@@ -72,45 +68,6 @@ return {
     end,
     opts = {
       max_lines = 4,
-    },
-  },
-  {
-    "nvim-treesitter/nvim-treesitter-textobjects", -- required by nvim-surround
-    event = { "BufReadPre" },
-    dependencies = { "nvim-treesitter" },
-  },
-  {
-    "haringsrob/nvim_context_vt",
-    event = { "BufReadPre" },
-    dependencies = { "nvim-treesitter" },
-    init = function()
-      require("utils.highlight").force_set_highlights("context_vt_hl", {
-        ContextVt = { link = "DiagnosticHint" },
-      })
-    end,
-    opts = {
-      min_rows = 3,
-    },
-  },
-  {
-    "andymass/vim-matchup",
-    version = "*",
-    event = { "BufReadPre" },
-    dependencies = { "nvim-treesitter" },
-    config = function()
-      vim.g.matchup_matchparen_offscreen = {}
-    end,
-  },
-  {
-    "windwp/nvim-ts-autotag",
-    event = { "BufReadPre" },
-    dependencies = { "nvim-treesitter" },
-    opts = {
-      opts = {
-        enable_close = true,
-        enable_rename = true,
-        enable_close_on_slash = true,
-      },
     },
   },
   {

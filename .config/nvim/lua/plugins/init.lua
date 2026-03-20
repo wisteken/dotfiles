@@ -6,13 +6,6 @@ return {
     config = true,
   },
   {
-    "mortepau/codicons.nvim", -- required by config function for nvim-dap
-    lazy = true,
-    init = function()
-      vim.g.codicons_extension_cmp_disable = true
-    end,
-  },
-  {
     "nvim-lua/plenary.nvim",
     lazy = true,
     version = "*",
@@ -23,7 +16,7 @@ return {
     lazy = true,
   },
   {
-    "tpope/vim-repeat", -- required by leap.nvim
+    "tpope/vim-repeat",
     vscode = true,
     event = { "BufReadPost", "BufAdd", "BufNewFile" },
   },
@@ -38,18 +31,14 @@ return {
       flavour = "frappe",
       transparent_background = true,
       integrations = {
-        dap = true,
-        dap_ui = true,
         flash = true,
         gitsigns = true,
         grug_far = true,
         lsp_saga = true,
-        neotest = true,
         noice = true,
         notify = true,
         treesitter_context = true,
         snacks = { enabled = true },
-        illuminate = { enabled = true, lsp = true },
         which_key = true,
       },
     },
@@ -146,19 +135,6 @@ return {
     },
     opts = {
       disable_when_zoomed = true,
-    },
-  },
-  {
-    "folke/lazydev.nvim",
-    version = "*",
-    ft = "lua",
-    dependencies = {
-      { "Bilal2453/luvit-meta", lazy = true }, -- optional `vim.uv` typings
-    },
-    opts = {
-      library = {
-        { path = "luvit-meta/library", words = { "vim%.uv" } },
-      },
     },
   },
 }

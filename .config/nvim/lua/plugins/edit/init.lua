@@ -1,10 +1,5 @@
 return {
   {
-    "windwp/nvim-autopairs",
-    event = "InsertEnter",
-    config = true,
-  },
-  {
     "folke/flash.nvim",
     version = "*",
     event = { "BufReadPost", "BufAdd", "BufNewFile" },
@@ -54,76 +49,10 @@ return {
     end,
   },
   {
-    "danymat/neogen",
-    version = "*",
-    keys = {
-      {
-        "<Leader>cn",
-        function()
-          require("neogen").generate()
-        end,
-        mode = "n",
-        desc = "Generate doc comment",
-      },
-    },
-    dependencies = { "nvim-treesitter" },
-    opts = {
-      snippet_engine = "vsnip",
-    },
-  },
-  {
     "kylechui/nvim-surround",
     version = "*",
     event = { "CursorHold", "CursorHoldI" },
     config = true,
-  },
-  {
-    "chrisgrieser/nvim-rip-substitute",
-    cmd = "RipSubstitute",
-    keys = {
-      {
-        "<leader>fs",
-        function()
-          require("rip-substitute").sub()
-        end,
-        mode = { "n", "x" },
-        desc = " rip substitute",
-      },
-    },
-    opts = {
-      popupWin = {
-        border = { " ", " ", " ", " ", " ", " ", " ", " " },
-      },
-      prefill = {
-        normal = false,
-      },
-    },
-  },
-  {
-    "rapan931/lasterisk.nvim",
-    vscode = true,
-    keys = {
-      {
-        "*",
-        function()
-          require("lasterisk").search({ is_whole = true, silent = true })
-          if package.loaded["hlslens"] then
-            require("hlslens").start()
-          end
-        end,
-        mode = "n",
-      },
-      {
-        "g*",
-        function()
-          require("lasterisk").search({ is_whole = false, silent = true })
-          if package.loaded["hlslens"] then
-            require("hlslens").start()
-          end
-        end,
-        mode = { "n", "x" },
-      },
-    },
   },
   {
     "max397574/better-escape.nvim",
@@ -138,10 +67,5 @@ return {
         },
       },
     },
-  },
-  {
-    "abecodes/tabout.nvim",
-    event = { "InsertEnter" },
-    opts = {},
   },
 }

@@ -6,15 +6,8 @@ return {
     "rafamadriz/friendly-snippets",
     {
       "onsails/lspkind.nvim",
-      config = function()
-        require("lspkind").init({
-          symbol_map = {
-            Copilot = "",
-          },
-        })
-      end,
+      config = true,
     },
-    { "fang2hou/blink-copilot" },
   },
   init = function()
     local palette = require("utils.colors").palette
@@ -69,14 +62,6 @@ return {
                   })
                 end
 
-                if ctx.item.source_name == "LSP" then
-                  local color_item =
-                    require("nvim-highlight-colors").format(ctx.item.documentation, { kind = ctx.kind })
-                  if color_item and color_item.abbr ~= "" then
-                    icon = color_item.abbr
-                  end
-                end
-
                 return icon .. ctx.icon_gap
               end,
 
@@ -89,14 +74,6 @@ return {
                   end
                 end
 
-                if ctx.item.source_name == "LSP" then
-                  local color_item =
-                    require("nvim-highlight-colors").format(ctx.item.documentation, { kind = ctx.kind })
-                  if color_item and color_item.abbr_hl_group then
-                    hl = color_item.abbr_hl_group
-                  end
-                end
-
                 return hl
               end,
             },
@@ -106,20 +83,7 @@ return {
     },
 
     sources = {
-      default = { "copilot", "lazydev", "lsp", "path", "snippets", "buffer" },
-      providers = {
-        copilot = {
-          name = "copilot",
-          module = "blink-copilot",
-          score_offset = 100,
-          async = true,
-        },
-        lazydev = {
-          name = "LazyDev",
-          module = "lazydev.integrations.blink",
-          score_offset = 100,
-        },
-      },
+      default = { "lsp", "path", "snippets", "buffer" },
     },
 
     fuzzy = { implementation = "prefer_rust_with_warning" },

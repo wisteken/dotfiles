@@ -1,21 +1,5 @@
 return {
   {
-    "stevearc/aerial.nvim",
-    version = "*",
-    lazy = true,
-    config = true,
-    keys = {
-      {
-        "<leader>cs",
-        mode = "n",
-        function()
-          require("aerial").snacks_picker()
-        end,
-        desc = "Code: Toggle Symbols Outline",
-      },
-    },
-  },
-  {
     "folke/which-key.nvim",
     version = "*",
     event = { "BufReadPost", "BufAdd", "BufNewFile" },
@@ -30,8 +14,6 @@ return {
       })
       wk.add({
         { "<leader>g", group = "+Go to File, Code or GitHub" },
-        { "<leader>t", group = "+Test" },
-        { "<leader>d", group = "+Debug" },
         { "<leader>c", group = "+Comment, Code" },
       })
     end,
@@ -45,14 +27,6 @@ return {
       highlight = { after = "" },
     },
   },
-  -- Buffers
-  {
-    "chrisgrieser/nvim-early-retirement",
-    event = "VeryLazy",
-    opts = {
-      retirementAgeMins = 20,
-    },
-  },
   {
     "linrongbin16/gitlinker.nvim",
     version = "*",
@@ -63,25 +37,9 @@ return {
     },
     opts = {},
   },
-  -- Highlight
-  {
-    "kevinhwang91/nvim-hlslens",
-    dependencies = { "nvim-scrollbar" },
-    event = { "BufReadPost", "BufAdd", "BufNewFile" },
-    init = function()
-      require("utils.highlight").force_set_highlights("nvim-hlslens_hl", {
-        HlSearchLens = { link = "DiagnosticHint" },
-        HlSearchLensNear = { link = "DiagnosticInfo" },
-      })
-    end,
-    config = function()
-      require("scrollbar.handlers.search").setup({})
-    end,
-  },
   {
     "lewis6991/gitsigns.nvim",
     version = "*",
-    dependencies = { "nvim-scrollbar" },
     event = { "BufReadPost", "BufAdd", "BufNewFile" },
     init = function()
       require("utils.highlight").force_set_highlights("gitsigns_hl", {
@@ -93,7 +51,6 @@ return {
     end,
     config = function()
       require("gitsigns").setup()
-      require("scrollbar.handlers.gitsigns").setup()
     end,
   },
   -- mini.diff: インライン差分表示（gitsignsを補完）
@@ -116,26 +73,6 @@ return {
         goto_prev = "[h",
         goto_next = "]h",
         goto_last = "]H",
-      },
-    },
-  },
-  {
-    "zbirenbaum/neodim",
-    event = "LspAttach",
-    config = true,
-  },
-  {
-    "brenoprata10/nvim-highlight-colors",
-    event = { "BufReadPost", "BufAdd", "BufNewFile" },
-    opts = {
-      render = "virtual",
-      virtual_symbol = "■",
-      enable_named_colors = false,
-      enable_tailwind = true,
-      exclude_filetypes = {
-        "dashboard",
-        "lazy",
-        "blink-cmp-menu",
       },
     },
   },

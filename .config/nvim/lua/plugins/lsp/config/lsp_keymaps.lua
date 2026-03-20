@@ -23,10 +23,6 @@ local function get_keymaps(bufnr)
     vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = bufnr }), { bufnr = bufnr })
   end
 
-  local go_to_definition = function()
-    require("overlook.api").peek_definition()
-  end
-
   -- stylua: ignore
   ---@type { [1]: string|string[], [2]: string, [3]: string | function, desc: string }[]
   local keymaps = {
@@ -40,7 +36,7 @@ local function get_keymaps(bufnr)
     { "n", "]w", get_diagnostic_goto("next", "WARN"), desc = "Go to next Diagnostic(warn)" },
     -- see buffer lcoal mappings in https://github.com/neovim/nvim-lspconfig#suggested-configuration
     { "n", "gD", vim.lsp.buf.declaration, desc = "Go to Declarations" },
-    { "n", "gd", go_to_definition, desc = "Go to Definitions" },
+    { "n", "gd", "<cmd>Lspsaga peek_definition<CR>", desc = "Peek Definition" },
     { "n", "K", "<cmd>Lspsaga hover_doc<CR>", desc = "Show Hover Card" },
     { "n", "gI", Snacks.picker.lsp_implementations, desc = "Go to Implementations" },
     { { "n", "i" }, "<C-k>", vim.lsp.buf.signature_help, desc = "Show Signature Help" },

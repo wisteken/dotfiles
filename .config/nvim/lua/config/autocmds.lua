@@ -27,6 +27,15 @@ local function show_readonly_warning()
   })
 end
 
+local function auto_reload_on_focus()
+  vim.o.autoread = true
+  vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter" }, {
+    group = vim.api.nvim_create_augroup("AutoReload", { clear = true }),
+    command = "checktime",
+  })
+end
+
 if not vim.g.vscode then
   show_readonly_warning()
+  auto_reload_on_focus()
 end

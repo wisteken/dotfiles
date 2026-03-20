@@ -66,9 +66,7 @@ return {
           opts = { skip = true },
         },
       },
-      messages = {
-        view_search = false, -- use hlslens
-      },
+      messages = {},
       views = {
         cmdline_popup = {
           border = { style = "none", padding = { 1, 3 } },

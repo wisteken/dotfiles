@@ -9,7 +9,6 @@ Leader key: `<Space>`
 | `<leader><leader>` | ファイル検索 (buffers + recent + git_files) |
 | `<leader>gf` | Git管理ファイルのみ検索 |
 | `<leader>gg` | 全文検索 (grep) |
-| `<leader>fs` | 置換 (rip-substitute) |
 | `<leader>fe` | ファイルエクスプローラー (Yazi: 現在のファイル) |
 | `<leader>fE` | ファイルエクスプローラー (Yazi: cwd) |
 
@@ -17,7 +16,7 @@ Leader key: `<Space>`
 
 | キー | 説明 |
 |------|------|
-| `gd` | 定義へジャンプ (peek表示) |
+| `gd` | 定義をプレビュー (Lspsaga peek) |
 | `gD` | 宣言へジャンプ |
 | `gr` | 参照一覧 |
 | `gI` | 実装へジャンプ |
@@ -37,8 +36,6 @@ Leader key: `<Space>`
 | `<leader>.` | コードアクション |
 | `<leader>cr` | リネーム |
 | `<leader>cf` | フォーマット |
-| `<leader>cs` | シンボル検索 (aerial picker) |
-| `<leader>cn` | ドキュメントコメント生成 |
 | `<leader>uh` | インレイヒントのトグル |
 | `[d` / `]d` | 前/次の診断 |
 | `[e` / `]e` | 前/次のエラー |
@@ -51,16 +48,27 @@ Leader key: `<Space>`
 |------|------|
 | `<leader>lg` | Lazygit |
 | `<leader>gs` | Git status |
-| `<leader>gd` | Diffview 開く |
-| `<leader>gD` | Diffview 閉じる |
-| `<leader>gh` | ファイル履歴 |
-| `<leader>gH` | ブランチ履歴 |
+| `<leader>gd` | CodeDiff 開く (VSCodeライク) |
+| `<leader>gh` | CodeDiff コミット履歴 |
 | `<leader>gO` | インライン差分オーバーレイ (mini.diff) |
 | `<leader>gl` | Git permalink をコピー |
 | `<leader>gL` | Git permalink を開く |
 | `[h` / `]h` | 前/次のhunk |
 | `gh` | hunkを適用 |
 | `gH` | hunkをリセット |
+
+### CodeDiff 操作 (diff view内)
+
+| キー | 説明 |
+|------|------|
+| `t` | インライン/サイドバイサイド切替 |
+| `]c` / `[c` | 次/前のhunk |
+| `]f` / `[f` | 次/前のファイル |
+| `-` | ファイルをstage/unstage |
+| `<leader>hs` | hunkをstage |
+| `<leader>hu` | hunkをunstage |
+| `<leader>hr` | hunkを破棄 |
+| `q` | 閉じる |
 
 ## 移動・ジャンプ
 
@@ -83,47 +91,57 @@ Leader key: `<Space>`
 | `<` / `>` | インデント (visual, 選択維持) |
 | `jk` | ESC (insert/terminal) |
 
+## ターミナル (Neovim内)
+
+| キー | 説明 |
+|------|------|
+| `Cmd+`` | 下部ターミナル トグル (高さ30%) |
+| `Cmd+J` | 右側ターミナル トグル (幅40%) |
+| `jk` | ターミナルからノーマルモードへ |
+
+## ウィンドウ・ペイン (Neovim内、tmuxライク)
+
+| キー | 説明 | 旧tmux |
+|------|------|--------|
+| `<C-w>-` | 水平分割 | `prefix + -` |
+| `<C-w>\|` | 垂直分割 | `prefix + \|` |
+| `<C-w>h/j/k/l` | ペイン移動 | `prefix + h/j/k/l` |
+| `<C-w>H/J/K/L` | ペインリサイズ (5単位) | `prefix + H/J/K/L` |
+| `<C-w>q` | ペインを閉じる | `prefix + q` |
+| `<C-w>Q` | バッファごと閉じる | `prefix + Q` |
+| `<C-w>\\` | 最後のアクティブペインへ | — |
+| `<C-w>Space` | 次のペインへ | `C-o` |
+| `<C-w>=` | ペインサイズを均等化 | — |
+
+## tmux (session/window管理のみ)
+
+| キー | 説明 |
+|------|------|
+| `C-b c` | 新しいウィンドウ作成 |
+| `C-b n` / `C-b p` | 次/前のウィンドウ |
+| `C-b 0-9` | ウィンドウ番号で移動 |
+| `C-b ,` | ウィンドウ名を変更 |
+| `C-b Q` | ウィンドウを終了 |
+| `C-b d` | セッションからデタッチ |
+| `C-b s` | セッション一覧 |
+| `C-b $` | セッション名を変更 |
+| `C-b w` | ウィンドウ一覧 (セッション横断) |
+
+## Cmd キー (Ghostty → tmux → Neovim)
+
+| キー | 説明 |
+|------|------|
+| `Cmd+P` | ファイル検索 |
+| `Cmd+Shift+F` | 全文検索 |
+| `Cmd+Shift+P` | コマンドパレット |
+| `Cmd+B` | サイドバートグル |
+| `Cmd+/` | コメントトグル |
+| `Cmd+`` | 下部ターミナルトグル |
+| `Cmd+J` | 右側ターミナルトグル |
+
 ## バッファ
 
 | キー | 説明 |
 |------|------|
 | `<S-h>` / `[b` | 前のバッファ |
 | `<S-l>` / `]b` | 次のバッファ |
-
-## テスト (neotest)
-
-| キー | 説明 |
-|------|------|
-| `<leader>tt` | 現在ファイルのテスト実行 |
-| `<leader>tT` | 全テスト実行 |
-| `<leader>tr` | 最寄りのテスト実行 |
-| `<leader>tl` | 最後のテストを再実行 |
-| `<leader>ts` | サマリー表示トグル |
-| `<leader>to` | 出力表示 |
-| `<leader>tS` | テスト停止 |
-
-## デバッグ (DAP)
-
-| キー | 説明 |
-|------|------|
-| `<leader>dc` | 続行 |
-| `<leader>dO` | ステップオーバー |
-| `<leader>di` | ステップイン |
-| `<leader>do` | ステップアウト |
-| `<leader>db` | ブレークポイント トグル |
-| `<leader>dB` | 条件付きブレークポイント |
-| `<leader>dr` | REPL |
-| `<leader>dt` | 終了 |
-
-## Overlook (定義プレビュー)
-
-| キー | 説明 |
-|------|------|
-| `<CR>` | プレビューから元ウィンドウで開く |
-| `;` | プレビューを縦分割で開く |
-| `<leader>pu` | 最後のポップアップを復元 |
-| `<leader>pU` | 全ポップアップを復元 |
-| `<leader>pc` | 全ポップアップを閉じる |
-| `<leader>ps` | ポップアップを水平分割で開く |
-| `<leader>pv` | ポップアップを縦分割で開く |
-| `<leader>pt` | ポップアップを新規タブで開く |

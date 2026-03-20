@@ -25,21 +25,6 @@ vim.keymap.set("n", "f<cr>", "}", { noremap = true })
 vim.keymap.set("x", "<C-k>", ":move'<-2<CR>gv=gv", { noremap = true, desc = "Move line up" })
 vim.keymap.set("x", "<C-j>", ":move'>+1<CR>gv=gv", { noremap = true, desc = "Move line down" })
 
---- @param n number
-local function jump_snip_safe(n)
-  local ls = package.loaded["luasnip"]
-  if ls and ls.jumpable(n) then
-    ls.jump(n)
-  end
-end
-
-vim.keymap.set({ "i", "s" }, "<C-f>", function()
-  jump_snip_safe(1)
-end, { silent = true })
-vim.keymap.set({ "i", "s" }, "<C-b>", function()
-  jump_snip_safe(-1)
-end, { silent = true })
-
 vim.keymap.set("n", "<CR>", function()
   if vim.fn.foldclosed(".") ~= -1 then
     return "zo"
@@ -68,6 +53,22 @@ vim.keymap.set("n", "*", "*zz", { noremap = true, silent = true, desc = "Search:
 vim.keymap.set("n", "#", "#zz", { noremap = true, silent = true, desc = "Search: Prev" })
 vim.keymap.set("n", "g*", "g*zz", { noremap = true, silent = true, desc = "Search: Next" })
 vim.keymap.set("n", "g#", "g#zz", { noremap = true, silent = true, desc = "Search: Prev" })
+
+-- Window (tmuxライクな操作)
+----------------------------------------------------------------
+-- prefix + - で水平分割
+vim.keymap.set("n", "<C-w>-", "<cmd>split<CR>", { noremap = true, silent = true, desc = "Window: Split Horizontal" })
+-- prefix + | で垂直分割
+vim.keymap.set("n", "<C-w>|", "<cmd>vsplit<CR>", { noremap = true, silent = true, desc = "Window: Split Vertical" })
+-- prefix + H/J/K/L でリサイズ (5単位)
+vim.keymap.set("n", "<C-w>H", "5<C-w><", { noremap = true, silent = true, desc = "Window: Resize Left" })
+vim.keymap.set("n", "<C-w>J", "5<C-w>-", { noremap = true, silent = true, desc = "Window: Resize Down" })
+vim.keymap.set("n", "<C-w>K", "5<C-w>+", { noremap = true, silent = true, desc = "Window: Resize Up" })
+vim.keymap.set("n", "<C-w>L", "5<C-w>>", { noremap = true, silent = true, desc = "Window: Resize Right" })
+-- prefix + q でペインを閉じる
+vim.keymap.set("n", "<C-w>q", "<cmd>close<CR>", { noremap = true, silent = true, desc = "Window: Close" })
+-- prefix + Q でウィンドウ (バッファ含む) を閉じる
+vim.keymap.set("n", "<C-w>Q", "<cmd>bdelete<CR>", { noremap = true, silent = true, desc = "Window: Close with Buffer" })
 
 -- Buffers
 ----------------------------------------------------------------
