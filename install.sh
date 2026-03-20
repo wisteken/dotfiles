@@ -10,6 +10,9 @@ if [ "$(uname -s)" = "Darwin" ]; then
   ln -sf "$HOME/dotfiles/.config/brewfile" "$HOME/.config"
 fi
 
-ln -sf "$HOME/dotfiles/.config/latex/.latexmkrc" "$HOME/.latexmkrc"
-ln -sf "$HOME/dotfiles/.zprofile" "$HOME/.zprofile"
-source "$HOME/.zprofile"
+# Create .zshrc if it doesn't exist
+if [ ! -f "$HOME/.zshrc" ]; then
+  cat > "$HOME/.zshrc" << 'EOF'
+source "$HOME/.config/zsh/init.zsh"
+EOF
+fi

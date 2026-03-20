@@ -1,4 +1,9 @@
-# variables
+# Enable Powerlevel10k instant prompt (must be near the top)
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+# Environment variables
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
@@ -11,7 +16,6 @@ ZSH_CONFIGS=(
   theme
   alias
   editor
-  brew
   plugin
   history
   tmux
