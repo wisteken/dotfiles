@@ -8,14 +8,8 @@ ln -sf "$HOME/dotfiles/.config/tmux" "$HOME/.config"
 ln -sf "$HOME/dotfiles/.config/ghostty" "$HOME/.config"
 if [ "$(uname -s)" = "Darwin" ]; then
   ln -sf "$HOME/dotfiles/.config/brewfile" "$HOME/.config"
-  brew file install
-  eval $(brew --prefix)/opt/fzf/install
 fi
 
 ln -sf "$HOME/dotfiles/.config/latex/.latexmkrc" "$HOME/.latexmkrc"
 ln -sf "$HOME/dotfiles/.zprofile" "$HOME/.zprofile"
 source "$HOME/.zprofile"
-
-# change shell
-chsh -s $(which zsh)
-

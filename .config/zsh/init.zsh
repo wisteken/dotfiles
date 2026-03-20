@@ -14,10 +14,7 @@ ZSH_CONFIGS=(
   brew
   plugin
   history
-  anyenv
   tmux
-  fzf
-  phpenv
 )
 
 for CONFIG in $ZSH_CONFIGS; do
