@@ -7,7 +7,7 @@ ln -sf "$HOME/dotfiles/.config/git" "$HOME/.config"
 ln -sf "$HOME/dotfiles/.config/tmux" "$HOME/.config"
 ln -sf "$HOME/dotfiles/.config/ghostty" "$HOME/.config"
 if [ "$(uname -s)" = "Darwin" ]; then
-  ln -sf "$HOME/dotfiles/.config/brewfile" "$HOME/.config"
+  ln -sf "$HOME/dotfiles/.config/brew/Brewfile" "$HOME/.Brewfile"
 fi
 
 # Create .zshrc if it doesn't exist
