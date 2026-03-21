@@ -8,5 +8,11 @@ return {
   },
   opts = {
     layout = "side-by-side",
+    keymaps = {
+      view = {
+        next_file = "<Tab>",
+        prev_file = "<S-Tab>",
+      },
+    },
   },
 }
