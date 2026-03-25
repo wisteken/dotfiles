@@ -1,0 +1,27 @@
+{
+  "title": "Tmux prefix IME off",
+  "rules": [
+    {
+      "description": "Disable IME when pressing C-b (tmux prefix) in Ghostty",
+      "manipulators": [
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": ["^com\\.mitchellh\\.ghostty$"]
+            }
+          ],
+          "from": {
+            "key_code": "b",
+            "modifiers": { "mandatory": ["control"] }
+          },
+          "to": [
+            { "key_code": "japanese_eisuu" },
+            { "key_code": "b", "modifiers": ["control"] }
+          ]
+        }
+      ]
+    }
+  ]
+}
