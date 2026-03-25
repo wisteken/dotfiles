@@ -1,7 +1,6 @@
 # Ghostty Configuration
 # Migrated from Hyper terminal configuration
 
-term = xterm-256color
 
 # Font Settings
 font-family = HackGen35 Console NF
