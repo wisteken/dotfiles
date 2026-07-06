@@ -1,0 +1,44 @@
+# herdr configuration — tmux (~/.config/tmux/tmux.conf) からの移行設定
+# 反映: herdr server reload-config
+
+onboarding = false
+
+[theme]
+# tmuxではCatppuccin Frappeを使用。herdrはcatppuccin(mocha系)/catppuccin-latteのみ。
+name = "catppuccin"
+
+[keys]
+# prefixはtmuxと同じ Ctrl+B (デフォルトのまま)
+# ペイン移動 h/j/k/l はherdrのデフォルトがvim風なのでそのまま
+
+# tmuxの prefix+| / prefix+- に合わせた分割
+split_vertical = "prefix+|"
+split_horizontal = "prefix+minus"
+
+# tmuxの prefix+q (ペイン終了) / prefix+Q (ウィンドウ終了) に合わせる
+close_pane = "prefix+q"
+close_tab = "prefix+shift+q"
+
+# close_paneにqを使うため、detachはtmuxデフォルトと同じdへ
+detach = "prefix+d"
+
+# ペインリサイズは prefix+r でリサイズモード (モード中はh/j/k/lで調整)
+
+[ui]
+# tmuxの mouse on 相当 (herdrはデフォルトでマウス対応)
+mouse_capture = true
+
+# サイドバーのエージェント一覧を「注意が必要な順」に並べる
+agent_panel_sort = "priority"
+
+# エージェント状態変化をmacOS通知で受け取る
+[ui.toast]
+delivery = "system"
+
+[experimental]
+# 日本語IMEが有効なままでもprefixコマンドが効くように
+# ASCII入力ソースへ一時切り替え (macOSのみ・ベストエフォート)
+switch_ascii_input_source_in_prefix = true
+
+# tmuxの allow-passthrough 相当: Kitty graphicsで画像表示 (Ghostty対応)
+kitty_graphics = true
