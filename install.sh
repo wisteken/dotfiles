@@ -8,6 +8,8 @@ ln -sf "$HOME/dotfiles/.config/tmux" "$HOME/.config"
 ln -sf "$HOME/dotfiles/.config/ghostty" "$HOME/.config"
 mkdir -p "$HOME/.config/herdr"
 ln -sf "$HOME/dotfiles/.config/herdr/config.toml" "$HOME/.config/herdr/"
+mkdir -p "$HOME/.config/hunk"
+ln -sf "$HOME/dotfiles/.config/hunk/config.toml" "$HOME/.config/hunk/"
 mkdir -p "$HOME/.config/karabiner/assets/complex_modifications"
 ln -sf "$HOME/dotfiles/.config/karabiner/assets/complex_modifications/tmux_ime.json" "$HOME/.config/karabiner/assets/complex_modifications/"
 if [ "$(uname -s)" = "Darwin" ]; then

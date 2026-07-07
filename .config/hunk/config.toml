@@ -1,0 +1,5 @@
+theme = "catppuccin-mocha"
+mode = "auto"          # auto / split / stack
+watch = true
+agent_notes = true     # AI注釈の表示
+transparent_background = true
