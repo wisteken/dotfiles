@@ -31,9 +31,9 @@ mouse_capture = true
 # サイドバーのエージェント一覧を「注意が必要な順」に並べる
 agent_panel_sort = "priority"
 
-# エージェント状態変化をmacOS通知で受け取る
+# エージェント状態変化の通知をGhostty経由(OSC)で出す。
 [ui.toast]
-delivery = "system"
+delivery = "terminal"
 
 [experimental]
 # 日本語IMEが有効なままでもprefixコマンドが効くように
