@@ -35,6 +35,10 @@ agent_panel_sort = "priority"
 [ui.toast]
 delivery = "terminal"
 
+# 通知はポップアップのみ (通知音は鳴らさない)
+[ui.sound]
+enabled = false
+
 [experimental]
 # 日本語IMEが有効なままでもprefixコマンドが効くように
 # ASCII入力ソースへ一時切り替え (macOSのみ・ベストエフォート)
